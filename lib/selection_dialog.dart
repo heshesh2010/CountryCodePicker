@@ -60,9 +60,8 @@ class _SelectionDialogState extends State<SelectionDialog> {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(0.0),
+        padding: const EdgeInsets.all(5.0),
         child: Container(
-          clipBehavior: Clip.hardEdge,
           width: widget.size?.width ?? MediaQuery.of(context).size.width,
           height:
               widget.size?.height ?? MediaQuery.of(context).size.height * 0.85,
@@ -100,6 +99,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                 ),
               Expanded(
                 child: ListView(
+                  padding: EdgeInsets.zero,
                   children: [
                     widget.favoriteElements.isEmpty
                         ? const DecoratedBox(decoration: BoxDecoration())
@@ -108,6 +108,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                             children: [
                               ...widget.favoriteElements.map(
                                 (f) => SimpleDialogOption(
+                                  padding: EdgeInsets.zero,
                                   child: _buildOption(f),
                                   onPressed: () {
                                     _selectItem(f);
@@ -122,6 +123,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                     else
                       ...filteredElements.map(
                         (e) => SimpleDialogOption(
+                          padding: EdgeInsets.zero,
                           child: _buildOption(e),
                           onPressed: () {
                             _selectItem(e);
@@ -145,7 +147,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
           if (widget.showFlag!)
             Flexible(
               child: Container(
-                margin: const EdgeInsets.only(right: 16.0),
+                margin: const EdgeInsets.only(right: 8.0),
                 decoration: widget.flagDecoration,
                 clipBehavior:
                     widget.flagDecoration == null ? Clip.none : Clip.hardEdge,
