@@ -4,6 +4,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:country_code_picker/country_code.dart';
 import 'package:country_code_picker/country_codes.dart';
 import 'package:country_code_picker/selection_dialog.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:universal_platform/universal_platform.dart';
@@ -181,7 +182,9 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                         ? Clip.none
                         : Clip.hardEdge,
                     decoration: widget.flagDecoration,
-                    padding: const EdgeInsets.only(right: 10.0, left: 0.0),
+                    margin: widget.alignLeft
+                        ? const EdgeInsets.only(right: 16.0, left: 8.0)
+                        : const EdgeInsets.only(right: 16.0),
                     child: Image.asset(
                       selectedItem!.flagUri!,
                       package: 'country_code_picker',
@@ -196,8 +199,8 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                     widget.showOnlyCountryWhenClosed
                         ? selectedItem!.toCountryStringOnly()
                         : selectedItem.toString(),
-                    style: widget.textStyle ??
-                        Theme.of(context).textTheme.bodyLarge,
+                    style:
+                        widget.textStyle ?? Theme.of(context).textTheme.button,
                     overflow: widget.textOverflow,
                   ),
                 ),
@@ -207,8 +210,8 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                   fit: widget.alignLeft ? FlexFit.tight : FlexFit.loose,
                   child: Padding(
                       padding: widget.alignLeft
-                          ? const EdgeInsets.only(right: 20.0, left: 4.0)
-                          : const EdgeInsets.only(right: 4.0),
+                          ? const EdgeInsets.only(right: 16.0, left: 8.0)
+                          : const EdgeInsets.only(right: 16.0),
                       child: Icon(
                         Icons.arrow_drop_down,
                         color: Colors.grey,
