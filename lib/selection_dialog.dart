@@ -109,7 +109,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                               ...widget.favoriteElements.map(
                                 (f) => SimpleDialogOption(
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 12.0),
+                                      vertical: 4.0, horizontal: 12.0),
                                   child: _buildOption(f),
                                   onPressed: () {
                                     _selectItem(f);
@@ -125,7 +125,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                       ...filteredElements.map(
                         (e) => SimpleDialogOption(
                           padding: EdgeInsets.symmetric(
-                              vertical: 2.0, horizontal: 12.0),
+                              vertical: 4.0, horizontal: 12.0),
                           child: _buildOption(e),
                           onPressed: () {
                             _selectItem(e);
