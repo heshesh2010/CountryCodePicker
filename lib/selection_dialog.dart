@@ -60,7 +60,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           width: widget.size?.width ?? MediaQuery.of(context).size.width,
           height:
@@ -83,7 +83,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
-                padding: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(10),
                 iconSize: 20,
                 icon: widget.closeIcon!,
                 onPressed: () => Navigator.pop(context),
@@ -108,7 +108,8 @@ class _SelectionDialogState extends State<SelectionDialog> {
                             children: [
                               ...widget.favoriteElements.map(
                                 (f) => SimpleDialogOption(
-                                  padding: EdgeInsets.zero,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 2.0, horizontal: 12.0),
                                   child: _buildOption(f),
                                   onPressed: () {
                                     _selectItem(f);
@@ -123,7 +124,8 @@ class _SelectionDialogState extends State<SelectionDialog> {
                     else
                       ...filteredElements.map(
                         (e) => SimpleDialogOption(
-                          padding: EdgeInsets.zero,
+                          padding: EdgeInsets.symmetric(
+                              vertical: 2.0, horizontal: 12.0),
                           child: _buildOption(e),
                           onPressed: () {
                             _selectItem(e);
