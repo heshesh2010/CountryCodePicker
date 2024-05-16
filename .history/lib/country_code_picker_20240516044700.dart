@@ -181,7 +181,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                         ? Clip.none
                         : Clip.hardEdge,
                     decoration: widget.flagDecoration,
-                    padding: const EdgeInsets.only(right: 0.0, left: 10.0),
+                    padding: const EdgeInsets.only(right: 0.0, left: 0.0),
                     child: Image.asset(
                       selectedItem!.flagUri!,
                       package: 'country_code_picker',
